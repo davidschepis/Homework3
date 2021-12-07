@@ -21,6 +21,7 @@ function generatePassword() {
   var criteria = getCriteriaFromUser();
   return createPassword(criteria);
 }
+//This function prompts to user for password criteria, it uses while loops for input validation
 function getCriteriaFromUser() {
   var length = -1;
   while (isNaN(length) || length < 8 || length > 128) {
@@ -52,6 +53,7 @@ function getCriteriaFromUser() {
   }
   return [length, includeLowerCase, includeUpperCase, includeNumbers, includeSpecialCharacters];
 }
+//This function creates a password based on the users criteria and returns it
 function createPassword(criteria) {
   var characterString = "";
   var password = "";
