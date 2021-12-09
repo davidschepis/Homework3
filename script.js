@@ -1,26 +1,28 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+//Will select from these strings for the password
 const lowerCase = "abcdefghijklmnopqrstuvwxyz";
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "1234567890";
 const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-///////////////////////////////////////////////////
+// Write the completed password to the #password element
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+
+//This function simply calls getCriteriaFromUser() and createPassword() and returns a password
 function generatePassword() {
   var criteria = getCriteriaFromUser();
   return createPassword(criteria);
 }
+
+
 //This function prompts to user for password criteria, it uses while loops for input validation
 function getCriteriaFromUser() {
   var length = -1;
@@ -33,19 +35,19 @@ function getCriteriaFromUser() {
     alert("You must select from at least 1 of the following criteria");
     var includeLowerCase = "";
     while (includeLowerCase !== "Yes" && includeLowerCase !== "No") {
-      includeLowerCase = prompt("Do you want to include lowercase letters? Type Yes or No");
+      includeLowerCase = prompt("Do you want to include lowercase letters? Type 'Yes' or 'No' exactly as shown");
     }
     var includeUpperCase = "";
     while (includeUpperCase !== "Yes" && includeUpperCase !== "No") {
-      includeUpperCase = prompt("Do you want to include uppercase letters? Type Yes or No");
+      includeUpperCase = prompt("Do you want to include uppercase letters? Type 'Yes' or 'No' exactly as shown");
     }
     var includeNumbers = "";
     while (includeNumbers !== "Yes" && includeNumbers !== "No") {
-      includeNumbers = prompt("Do you want to include numbers? Type Yes or No");
+      includeNumbers = prompt("Do you want to include numbers? Type 'Yes' or 'No' exactly as shown");
     }
     var includeSpecialCharacters = "";
     while (includeSpecialCharacters !== "Yes" && includeSpecialCharacters !== "No") {
-      includeSpecialCharacters = prompt("Do you want to include numbers? Type Yes or No");
+      includeSpecialCharacters = prompt("Do you want to include special characters? Type 'Yes' or 'No' exactly as shown");
     }
     if (includeLowerCase === "Yes" || includeUpperCase === "Yes" || includeNumbers === "Yes" || includeSpecialCharacters === "Yes") {
       characterTypeChecker = true;
@@ -53,6 +55,8 @@ function getCriteriaFromUser() {
   }
   return [length, includeLowerCase, includeUpperCase, includeNumbers, includeSpecialCharacters];
 }
+
+
 //This function creates a password based on the users criteria and returns it
 function createPassword(criteria) {
   var characterString = "";
