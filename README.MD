@@ -1,11 +1,11 @@
-03 JavaScript: Password Generator
+# Password Generator
 
 David Schepis
 
 This website allows a user to select certain criteria and have a password generated for them.
 
-https://github.com/davidschepis/Homework3
+https://github.com/davidschepis/Password_Generator
 
-https://davidschepis.github.io/Homework3/
+https://davidschepis.github.io/Password_Generator/
 
 ![Screenshot](screenshot.png)
